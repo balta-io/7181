@@ -9,8 +9,8 @@ import { Todo } from 'src/models/todo.model';
 })
 export class AppComponent {
   public todos: Todo[] = [];
-  public title: String = 'Minhas Tarefas';
   public form: FormGroup;
+  public mode: String = 'list';
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -24,12 +24,17 @@ export class AppComponent {
     this.load();
   }
 
+  changeMode(mode: String) {
+    this.mode = mode;
+  }
+
   add() {
     const title = this.form.controls['title'].value;
     const id = this.todos.length + 1;
     this.todos.push(new Todo(id, title, false));
     this.save();
     this.clear();
+    this.changeMode('list');
   }
 
   clear() {
