@@ -1,3 +1,22 @@
-<p>
-  products-page works!
-</p>
+<div class="uk-container">
+  <div class="uk-grid uk-margin-small-top">
+    <div class="uk-width-1-3 uk-margin-small-bottom" *ngFor="let product of products$ | async">
+      <div class="uk-card uk-card-default">
+        <div class="uk-card-media-top uk-text-center">
+          <img src="{{ product.images[0] }}" height="150" width="150" class="uk-margin-small-top uk-border-circle"
+            alt="">
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title">{{ product.price/100 | currency: 'BRL' }}</h3>
+          <p style="height: 50px;">
+            {{ product.title }}
+          </p>
+          <button class="uk-button uk-button-default uk-button-large uk-width-1-1">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: cart"></span>
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
