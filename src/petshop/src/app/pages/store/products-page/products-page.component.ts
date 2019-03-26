@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-products-page',
@@ -8,13 +9,12 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./products-page.component.css']
 })
 export class ProductsPageComponent implements OnInit {
-  products$: Observable<any[]> = null;
+  products$: Observable<Product[]> = null;
 
   constructor(private service: DataService) { }
 
   ngOnInit() {
     this.products$ = this.service.getProducts();
-    console.log(this.products$);
   }
 
 }

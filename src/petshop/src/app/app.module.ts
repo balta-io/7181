@@ -14,6 +14,7 @@ import { ProfilePageComponent } from './pages/account/profile-page/profile-page.
 import { PetsPageComponent } from './pages/account/pets-page/pets-page.component';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductCardComponent } from './components/store/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     CheckoutPageComponent,
     ProfilePageComponent,
     PetsPageComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
