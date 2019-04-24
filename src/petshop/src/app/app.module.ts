@@ -17,9 +17,13 @@ import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { MaskDirective } from './directives/mask.directive';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
+    MaskDirective,
     AppComponent,
     FramePageComponent,
     LoginPageComponent,
@@ -32,6 +36,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     PetsPageComponent,
     ProductCardComponent,
     LoadingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [DataService],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
