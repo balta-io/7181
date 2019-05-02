@@ -1,4 +1,4 @@
-<div class="uk-container">
+<div class="uk-container" *ngIf="cart?.items.length > 0">
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
@@ -8,7 +8,7 @@
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li class="uk-active">
-          <a href="#">
+          <a (click)="clear()">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: close"></span>
             Limpar Carrinho
           </a>
@@ -16,42 +16,39 @@
       </ul>
     </div>
   </nav>
-</div>
-<div class="uk-container">
-  <div class="uk-grid-small" uk-grid>
+  <br><br>
+  <div class="uk-grid-small" uk-grid *ngFor="let item of cart?.items">
     <div class="uk-width-expand" uk-leader>
-      <img src="https://placehold.it/64" class="uk-align-left" alt="">
-      <a href="#">Shampoo para pelos macios</a> <br>
-      <strong>2 unidades</strong>
+      <img src="{{ item.image }}" class="uk-align-left" alt="{{ item.product }}" width="64" height="64">
+      <a href="#">{{ item.product }}</a> <br>
+      <strong>{{ item.quantity }} unidade(s)</strong>
     </div>
     <div>
       <br>
-      $20.90
-      <a href="#" class="uk-button uk-button-link uk-align-right">
+      {{ item.price/100 | currency: 'BRL' }}
+      <a class="uk-button uk-button-link uk-align-right" (click)="remove(item)">
         <span class="uk-icon" uk-icon="icon: close"></span>
       </a>
     </div>
   </div>
-  <div class="uk-grid-small" uk-grid>
-    <div class="uk-width-expand" uk-leader>
-      <img src="https://placehold.it/64" class="uk-align-left" alt="">
-      <a href="#">Shampoo para pelos macios</a> <br>
-      <strong>2 unidades</strong>
-    </div>
-    <div>
-      <br>
-      $20.90
-      <a href="#" class="uk-button uk-button-link uk-align-right">
-        <span class="uk-icon" uk-icon="icon: close"></span>
-      </a>
-    </div>
-  </div>
+
+
   <div class="uk-text-right">
     <h3 class="uk-text-right">
-      R$ 41,80
+      {{ total()/100 | currency: 'BRL' }}
     </h3>
     <a href="/checkout" class="uk-button uk-button-large uk-button-primary uk-margin-small-bottom">
       FINALIZAR COMPRA
     </a>
   </div>
+</div>
+
+<div class="uk-container" *ngIf="cart?.items.length == 0">
+  <br>
+  <br>
+  <br>
+  <p class="uk-text-center"><em>Seu carrinho está vazio</em></p>
+  <br>
+  <br>
+  <br>
 </div>
