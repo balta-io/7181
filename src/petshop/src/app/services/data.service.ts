@@ -40,4 +40,12 @@ export class DataService {
     resetPassword(data) {
         return this.http.post(`${this.url}/accounts/reset-password`, data);
     }
+
+    getProfile() {
+        return this.http.get(`${this.url}/accounts`, { headers: this.composeHeaders() });
+    }
+
+    updateProfile(data) {
+        return this.http.put(`${this.url}/accounts`, data, { headers: this.composeHeaders() });
+    }
 }
