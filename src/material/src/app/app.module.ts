@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatRadioModule, MatSlideToggleModule, MatDatepickerModule, MatNativeDateModule, MatIconModule, MatButtonModule, MatSelectModule, MatSliderModule, MatMenuModule, MatSidenavModule, MatToolbar, MatToolbarModule, MatListModule } from '@angular/material';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatRadioModule, MatSlideToggleModule, MatDatepickerModule, MatNativeDateModule, MatIconModule, MatButtonModule, MatSelectModule, MatSliderModule, MatMenuModule, MatSidenavModule, MatToolbar, MatToolbarModule, MatListModule, MatCardModule, MatExpansionModule, MatGridListModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,9 @@ import { SelectComponent } from './components/select/select.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CardComponent } from './components/card/card.component';
+import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
+import { GridComponent } from './components/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SelectComponent,
     SliderComponent,
     MenuComponent,
-    SidenavComponent
+    SidenavComponent,
+    CardComponent,
+    ExpansionPanelComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatGridListModule,
     AppRoutingModule
   ],
   providers: [],
